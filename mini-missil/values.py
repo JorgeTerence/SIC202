@@ -14,15 +14,19 @@ def coef(df: pd.DataFrame, cols: list[str], res: str) -> np.ndarray:
     xtx_inv = np.linalg.inv(xtx)
     xty = np.matmul(xt, y)
 
-    return np.matmul(xtx_inv, xty) # coeficients
+    c = np.matmul(xtx_inv, xty) # coeficients
+
+    print("Const", *cols, "->", res)
+    print(c)
+    print()
+
+    return c
 
 
 df = read_csv("data.csv")
 
 cols = ["Pressure", "Angle"]
 
-coeficients = coef(df, ["Pressure", "Angle"], "Distance")
+coef(df, ["Pressure", "Angle"], "Distance") # Preview distance
 
-print("Const", *cols)
-# print([round(c, 3) for c in coeficients], "\n")
-print(coeficients)
+coef(df, ["Distance", "Pressure"], "Angle") # Calculate angle
