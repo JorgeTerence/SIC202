@@ -17,7 +17,7 @@ def coef(df: pd.DataFrame, cols: list[str], res: str) -> np.ndarray:
     c = np.matmul(xtx_inv, xty) # coeficients
 
     print("Const", *cols, "->", res)
-    print(c)
+    print([round(n, 3) for n in c])
     print()
 
     return c
