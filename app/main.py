@@ -16,7 +16,7 @@ class App(ctk.CTk):
         )
         self.btn_calc.pack(pady=(16, 6), padx=15, anchor=ctk.NW)
 
-        self.res = ctk.StringVar(value="hey")
+        self.res = ctk.StringVar()
         self.lbl_res = ctk.CTkLabel(master=self, textvariable=self.res)
         self.lbl_res.pack(pady=10, padx=15, anchor=ctk.NW)
 
